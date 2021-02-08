@@ -9,6 +9,9 @@ h1 {
     margin: 10px 10px 2px 10px;
     font-weight: bold;
 }
+h3 {
+    color: bisque;
+}
 h6 {
     margin: 2px 10px 25px 12px;
 }
@@ -25,4 +28,7 @@ h6 {
 }
 .altura {
     height: 80%;
+}
+.btn-busqueda {
+    height: 90%;
 }

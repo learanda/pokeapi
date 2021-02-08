@@ -15,6 +15,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
 
+    <!-- Iconos Material Design -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <title>Pokeapi</title>
   </head>
   <body>
@@ -23,13 +26,13 @@
 
     <div class="container">
         <div class="row">
-          <div class="col-sm-12 col-lg-6 bloque pt-2 pb-2">
+          <div class="col-sm-12 bloque pt-2 pb-2 mb-4">
             <!-- <form action=""> -->
               <div class="row">
-
+                <div class="col-12 mt-2 mb-2 "><h3>Búsqueda por generación</h3></div>
                 <div class="col-6 mb-2">
                   <select class="form-select input" id="gen">
-                    <option disabled selected value="">Seleccione una generación</option>
+                    <option disabled selected value="">Seleccionar generación</option>
                     <option value="1">1ra generación</option>
                     <option value="2">2da generación</option>
                     <option value="3">3ra generación</option>
@@ -52,15 +55,19 @@
                 <div class="row">
                   <div class="col-9">
                     <select class="form-select input" id="elem">
-                      <option disabled selected value="">Seleccione un Pokémon</option>
+                      <option disabled selected value="">Seleccionar Pokémon</option>
                     </select>
                   </div>
                   <div class="col-3">
-                      <button type="submit" class="btn btn-danger">Buscar</button>
+                      <button type="submit" class="btn btn-danger btn-busqueda"><span class="material-icons">search</span></button>
                   </div>
                 </div>
 
             <!-- </form> -->
+          </div>
+
+          <div class="col-sm-12 bloque pt-2 pb-2">
+            
           </div>
         </div>
     </div>
