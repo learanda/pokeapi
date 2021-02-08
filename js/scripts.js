@@ -1,17 +1,36 @@
 var url = 'https://pokeapi.co/api/v2/pokemon/1'
 var lista = [];
 
-var generacion = document.getElementById("gen").value;
+var initFor = 0;
+var endFor = 0;
 
-// crear una funcion que se ejecute con onclick que venga de un select con las generaciones
-// que segun que generacion se elige, en un var se almacena el comienzo y el tope de var i
-// esos var se usan en el for de crearArrayNombres
-// la funcion que voy a crear al final va a llamar a la funcion crearArrayNombres para que
-// cargue los pokes en el select ni bien se "filtra"
+// borrar filtro con location.reload();
 
-// ver si se mejora el orden de carga de los elementos con una funcion con tiempo, retraso
-function crearArrayNombres(){
-    for (var i=1; i<=151; i++){
+function filtrar() {
+    var generacion = document.getElementById("gen").value;
+    console.log(generacion);
+    switch (generacion) {
+        case '1': initFor = 1; endFor = 151; break;
+        case '2': initFor = 152; endFor = 251; break;
+        case '3': initFor = 252; endFor = 386; break;
+        case '4': initFor = 387; endFor = 493; break;
+        case '5': initFor = 494; endFor = 649; break;
+        case '6': initFor = 650; endFor = 721; break;
+        case '7': initFor = 722; endFor = 809; break;
+        case '8': initFor = 810; endFor = 890; break;
+        case '9': initFor = 1; endFor = 890; break;
+        default: console.log("Seleccione una opción válida");
+    }
+    //console.log(initFor, endFor)
+    crearArrayNombres(initFor, endFor);
+}
+/* setTimeout(() => {
+    console.log(initFor, endFor);
+}, 3000); */
+
+
+function crearArrayNombres(initFor, endFor){
+    for (var i=initFor; i<=endFor; i++){
         var link = 'https://pokeapi.co/api/v2/pokemon/'+i;
         
         fetch(link)
@@ -39,7 +58,7 @@ function crearArrayNombres(){
 
     }
 }
-crearArrayNombres();
+//crearArrayNombres();
 
 console.log(lista);
 
