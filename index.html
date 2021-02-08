@@ -14,16 +14,25 @@
     <title>Pokeapi</title>
   </head>
   <body>
-    <h1>Pokeapi</h1>
+    <h1>Poke-búsquedas</h1>
+    <h6>Info from <a href="https://pokeapi.co/" target="_blank">pokeapi.co</a></h6>
 
     <div class="container">
         <div class="row">
           <div class="col-6 bloque pt-2 pb-2">
-            <select class="form-select input" id="elem">
-              <option disabled selected value="">Seleccione un Pokémon</option>
-            </select>
+            <form action="">
+              <div class="row">
+                <div class="col-10">
+                  <select class="form-select input" id="elem">
+                    <option disabled selected value="">Seleccione un Pokémon</option>
+                  </select>
+                </div>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-danger">Buscar</button>
+                </div>
+              </div>
+            </form>
           </div>
-        
         </div>
     </div>
 
