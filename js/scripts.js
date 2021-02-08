@@ -60,3 +60,25 @@ function crearArrayNombres(initFor, endFor){
 
 console.log(lista);
 
+function search() {
+    var pokeName = document.getElementById("elem").value;
+    //console.log(pokeName);
+    var urlName = 'https://pokeapi.co/api/v2/pokemon/'+pokeName;
+    //console.log(urlName);
+    
+    fetch(urlName)
+    .then(response => response.json())
+    .then(data => {
+
+    let element = document.getElementById('pokeName')
+    element.innerHTML = `
+        <h2 class="d-flex justify-content-center">${(data.name).toUpperCase()}</h2>
+        <p class="d-flex justify-content-center">#${data.id}</p>
+        <img class="d-block justify-content-center mx-auto imagen"src='${data.sprites.front_default}'/>
+        `;
+
+    console.log(data)
+})
+.catch(err=>console.log(err))
+}
+
