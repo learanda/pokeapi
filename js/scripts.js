@@ -1,6 +1,8 @@
 var url = 'https://pokeapi.co/api/v2/pokemon/1'
 var lista = [];
 
+var generacion = document.getElementById("gen").value;
+
 // crear una funcion que se ejecute con onclick que venga de un select con las generaciones
 // que segun que generacion se elige, en un var se almacena el comienzo y el tope de var i
 // esos var se usan en el for de crearArrayNombres
