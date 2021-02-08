@@ -4,8 +4,6 @@ var lista = [];
 var initFor = 0;
 var endFor = 0;
 
-// borrar filtro con location.reload();
-
 function filtrar() {
     var generacion = document.getElementById("gen").value;
     console.log(generacion);
