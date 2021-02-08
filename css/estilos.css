@@ -3,9 +3,11 @@ body {
 }
 h1, h6 {
     color: bisque;
+    font-family: 'Coming Soon', cursive;
 }
 h1 {
     margin: 10px 10px 2px 10px;
+    font-weight: bold;
 }
 h6 {
     margin: 2px 10px 25px 12px;
@@ -19,4 +21,6 @@ h6 {
 .bloque {
     background-color: rgb(158, 0, 0);
     border-radius: 5px;
+    
+font-family: 'Source Sans Pro', sans-serif;
 }
