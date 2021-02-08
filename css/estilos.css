@@ -21,6 +21,8 @@ h6 {
 .bloque {
     background-color: rgb(158, 0, 0);
     border-radius: 5px;
-    
-font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.altura {
+    height: 80%;
 }
