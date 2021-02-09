@@ -25,7 +25,7 @@ h6 {
     background-color: crimson;
     color: bisque;
 }
-#inputName::placeholder {
+#inputName::placeholder, #inputID::placeholder{
     color: bisque;
 }
 .bloque {

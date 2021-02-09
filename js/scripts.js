@@ -75,7 +75,11 @@ function catchInput() {
     search(pokeName);
 }
 
-
+// agregar busqueda por ID
+// podria dividir la funcion search
+// un search que reciba por parametro pokeName y otra funcion search pero que reciba el ID
+// ambas van a formar su url
+// esa url pasa por parametro a otra funcion que es la que hace todo el resto con el response
 
 // uso el nombre capturado pasado como parametro para la url
 function search(pokeName) {
