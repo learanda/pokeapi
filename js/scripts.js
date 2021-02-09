@@ -98,6 +98,8 @@ function search(url) {
     fetch(url)
     .then(response => response.json())
     .then(data => {
+
+        //var fan =
         
         let element = document.getElementById('pokeName')
         element.innerHTML = `
@@ -127,6 +129,11 @@ function search(url) {
                     <th colspan="2">Dream World</th>
                     <tr>
                         <td colspan="2"><img class="d-block justify-content-center mx-auto imagen"src='${data.sprites.other.dream_world.front_default}'/></td>
+                    </tr>
+
+                    <th colspan="2">Official-Artwork</th>
+                    <tr>
+                        <td colspan="2"><img class="d-block justify-content-center mx-auto imagen"src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png'/></td>
                     </tr>
 
                     <th colspan="2">Abilities</th>                    
