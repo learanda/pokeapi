@@ -57,36 +57,45 @@ function crearArrayNombres(initFor, endFor){
     }
 }
 //crearArrayNombres();
-
 console.log(lista);
 
 
 var pokeName = "";
 // capturo el nombre del select
 function catchList() {
-    var pokeName = document.getElementById("selectName").value;
-    search(pokeName);
+    pokeName = document.getElementById("selectName").value;
+    searchByPokeName(pokeName);
 }
 
 // capturo el nombre del input
 function catchInput() {
     var pokeName2 = document.getElementById("inputName").value;
     pokeName = pokeName2.toLowerCase();
-    search(pokeName);
+    searchByPokeName(pokeName);
 }
 
-// agregar busqueda por ID
-// podria dividir la funcion search
-// un search que reciba por parametro pokeName y otra funcion search pero que reciba el ID
-// ambas van a formar su url
-// esa url pasa por parametro a otra funcion que es la que hace todo el resto con el response
+var pokeID = 0;
+// capturo el ID del input
+function catchID() {
+    pokeID = document.getElementById("inputID").value;
+    searchByPokeID(pokeID);
+    console.log(pokeID);
+}
 
-// uso el nombre capturado pasado como parametro para la url
-function search(pokeName) {
-    var urlName = 'https://pokeapi.co/api/v2/pokemon/'+pokeName;
-    //console.log(urlName);
-    
-    fetch(urlName)
+function searchByPokeName(pokeName) {
+    url = 'https://pokeapi.co/api/v2/pokemon/'+pokeName;
+    search(url);
+}
+
+function searchByPokeID(pokeID) {
+    url = 'https://pokeapi.co/api/v2/pokemon/'+pokeID;
+    search(url);
+}
+
+
+function search(url) {
+ 
+    fetch(url)
     .then(response => response.json())
     .then(data => {
         let element = document.getElementById('pokeName')
@@ -105,6 +114,6 @@ function search(pokeName) {
     .catch( err => {
         console.log(err)
         let element = $("#formContainer");
-        element.append('<div class="col-12 mt-1"><p style="color: yellow;" id="errMsg">Indique un nombre de Pokémon correcto.</p></div>');
+        element.append('<div class="col-12 mt-1"><p style="color: yellow;" id="errMsg">Nombre o id de Pokémon incorrecto.</p></div>');
     })
 }

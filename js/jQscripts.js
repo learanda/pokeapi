@@ -7,10 +7,11 @@ $(document).ready(function() {
         });
 });
 
+// ejecuta function catchID con keypress
 $(document).ready(function() {
     $('#inputID').keypress(function(e){   
     if(e.which == 13){      
-        catchInput();      
+        catchID();      
     }   
     });
 });
