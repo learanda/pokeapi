@@ -60,9 +60,23 @@ function crearArrayNombres(initFor, endFor){
 
 console.log(lista);
 
-function search() {
-    var pokeName = document.getElementById("elem").value;
-    //console.log(pokeName);
+
+var pokeName = "";
+// capturo el nombre del select
+function catchList() {
+    var pokeName = document.getElementById("selectName").value;
+    search(pokeName);
+}
+
+// capturo el nombre del input
+function catchInput() {
+    var pokeName2 = document.getElementById("inputName").value;
+    pokeName = pokeName2.toLowerCase();
+    search(pokeName);
+}
+
+// uso el nombre capturado pasado como parametro para la url
+function search(pokeName) {
     var urlName = 'https://pokeapi.co/api/v2/pokemon/'+pokeName;
     //console.log(urlName);
     
@@ -81,4 +95,3 @@ function search() {
 })
 .catch(err=>console.log(err))
 }
-
