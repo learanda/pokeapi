@@ -41,3 +41,8 @@ h6 {
     width: 150px;
     height: 150px;
 }
+.pokeNumber {
+    color: bisque;
+    font-family: 'Coming Soon', cursive;
+    font-size: 30px;
+}

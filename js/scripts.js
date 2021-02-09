@@ -75,6 +75,8 @@ function catchInput() {
     search(pokeName);
 }
 
+
+
 // uso el nombre capturado pasado como parametro para la url
 function search(pokeName) {
     var urlName = 'https://pokeapi.co/api/v2/pokemon/'+pokeName;
@@ -85,8 +87,8 @@ function search(pokeName) {
     .then(data => {
         let element = document.getElementById('pokeName')
         element.innerHTML = `
-            <h2 class="d-flex justify-content-center">${(data.name).toUpperCase()}</h2>
-            <p class="d-flex justify-content-center">#${data.id}</p>
+            <h1 class="d-flex justify-content-center">${(data.name).toUpperCase()}</h1>
+            <p class="d-flex justify-content-center pokeNumber">#${data.id}</p>
             <img class="d-block justify-content-center mx-auto imagen"src='${data.sprites.front_default}'/>
             `;
 
