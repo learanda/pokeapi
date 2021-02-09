@@ -44,7 +44,7 @@ function crearArrayNombres(initFor, endFor){
             var newContent = document.createTextNode(array)
             newOption.appendChild(newContent)
 
-            let element = document.getElementById('elem')
+            let element = document.getElementById('selectName')
 
             // añado el elemento creado
             element.appendChild(newOption)
@@ -83,15 +83,22 @@ function search(pokeName) {
     fetch(urlName)
     .then(response => response.json())
     .then(data => {
+        let element = document.getElementById('pokeName')
+        element.innerHTML = `
+            <h2 class="d-flex justify-content-center">${(data.name).toUpperCase()}</h2>
+            <p class="d-flex justify-content-center">#${data.id}</p>
+            <img class="d-block justify-content-center mx-auto imagen"src='${data.sprites.front_default}'/>
+            `;
 
-    let element = document.getElementById('pokeName')
-    element.innerHTML = `
-        <h2 class="d-flex justify-content-center">${(data.name).toUpperCase()}</h2>
-        <p class="d-flex justify-content-center">#${data.id}</p>
-        <img class="d-block justify-content-center mx-auto imagen"src='${data.sprites.front_default}'/>
-        `;
+        console.log(data)
 
-    console.log(data)
-})
-.catch(err=>console.log(err))
+        // borra mensaje de error (funciona a medias)
+        $("#errMsg").empty();
+    })
+
+    .catch( err => {
+        console.log(err)
+        let element = $("#formContainer");
+        element.append('<div class="col-12 mt-1"><p style="color: yellow;" id="errMsg">Indique un nombre de Pokémon correcto.</p></div>');
+    })
 }
