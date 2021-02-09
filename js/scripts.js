@@ -130,8 +130,7 @@ function search(url) {
                     </tr>
 
                     <th colspan="2">Abilities</th>                    
-                    <tr><td colspan="2"><p class="d-flex justify-content-center pokeNumber">${data.abilities[0].ability.name}</p></td></tr>
-                    <tr><td colspan="2"><p class="d-flex justify-content-center pokeNumber">${data.abilities[1].ability.name}</p></td></tr>
+                    <tr><td colspan="2" class="ability">${data.abilities[0].ability.name}, ${data.abilities[1].ability.name}</td></tr>
                     
                     
                 </tbody>
