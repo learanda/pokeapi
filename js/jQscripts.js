@@ -6,3 +6,11 @@ $(document).ready(function() {
         }   
         });
 });
+
+$(document).ready(function() {
+    $('#inputID').keypress(function(e){   
+    if(e.which == 13){      
+        catchInput();      
+    }   
+    });
+});
