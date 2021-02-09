@@ -98,11 +98,45 @@ function search(url) {
     fetch(url)
     .then(response => response.json())
     .then(data => {
+        
         let element = document.getElementById('pokeName')
         element.innerHTML = `
             <h1 class="d-flex justify-content-center">${(data.name).toUpperCase()}</h1>
             <p class="d-flex justify-content-center pokeNumber">#${data.id}</p>
-            <img class="d-block justify-content-center mx-auto imagen"src='${data.sprites.front_default}'/>
+            <div class="col-12">
+            <table class="table table-striped" id="tabla">
+                <thead>
+                  <tr>
+                    <th scope="col">Front</th>
+                    <th scope="col">Back</th>
+                  </tr>
+                </thead>
+                <tbody id="body">
+                    <tr>
+                        <td><img class="d-block justify-content-center mx-auto imagen"src='${data.sprites.front_default}'/></td>
+                        <td><img class="d-block justify-content-center mx-auto imagen"src='${data.sprites.back_default}'/></td>
+                    </tr>
+                    
+                    <th scope="col">Front (shiny)</th>
+                    <th scope="col">Back (shiny)</th>
+                    <tr>
+                        <td><img class="d-block justify-content-center mx-auto imagen"src='${data.sprites.front_shiny}'/></td>
+                        <td><img class="d-block justify-content-center mx-auto imagen"src='${data.sprites.back_shiny}'/></td>
+                    </tr>
+
+                    <th colspan="2">Dream World</th>
+                    <tr>
+                        <td colspan="2"><img class="d-block justify-content-center mx-auto imagen"src='${data.sprites.other.dream_world.front_default}'/></td>
+                    </tr>
+
+                    <th colspan="2">Abilities</th>                    
+                    <tr><td colspan="2"><p class="d-flex justify-content-center pokeNumber">${data.abilities[0].ability.name}</p></td></tr>
+                    <tr><td colspan="2"><p class="d-flex justify-content-center pokeNumber">${data.abilities[1].ability.name}</p></td></tr>
+                    
+                    
+                </tbody>
+              </table>
+            </div>
             `;
 
         console.log(data)
