@@ -51,9 +51,12 @@ footer {
 .btn-busqueda {
     height: 90%;
 }
-.imagen {
+img {
     width: 150px;
     height: 150px;
+    display: block;
+    justify-content: center;
+    margin: auto;
 }
 .pokeNumber {
     color: bisque;

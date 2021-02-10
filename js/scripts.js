@@ -1,6 +1,8 @@
 var url = 'https://pokeapi.co/api/v2/pokemon/'
 var urlText = 'https://pokeapi.co/api/v2/pokemon-species/'
 var lista = [];
+var pokeName = "";
+var pokeID = 0;
 
 var initFor = 0;
 var endFor = 0;
@@ -61,7 +63,6 @@ function crearArrayNombres(initFor, endFor){
 console.log(lista);
 
 
-var pokeName = "";
 // capturo el nombre del select
 function catchList() {
     pokeName = document.getElementById("selectName").value;
@@ -75,7 +76,6 @@ function catchInput() {
     searchByPokeName(pokeName);
 }
 
-var pokeID = 0;
 // capturo el ID del input
 function catchID() {
     pokeID = document.getElementById("inputID").value;
@@ -97,15 +97,6 @@ function searchByPokeID(pokeID) {
     searchFlavorText(urlText);
 }
 
-function searchFlavorText(urlText) {
-    fetch(urlText)
-    .then(response => response.json())
-    .then(data => {
-        let element = document.getElementById('pokeDescription')
-        element.innerHTML = `<p class="flavorText">${data.flavor_text_entries[0].flavor_text}</p>`;
-    })
-    .catch( err => console.log(err))
-}
 
 function search(url) {
  
@@ -152,45 +143,35 @@ function search(url) {
             <p class="d-flex justify-content-center pokeNumber"></p>
             <div class="col-12">
             <table class="table table-striped" id="tabla">
-                <thead>
-                    
-                </thead>
+                <thead></thead>
                 <tbody id="body">
                     <th colspan="2">Types: ${types}</th><tr></tr>
                     <th colspan="2">Abilities: ${abilities}</th><tr></tr>
                     <th scope="col">Weight: ${weightKg} KG</th>
                     <th scope="col">Height: ${heightMts} Mts</th><tr></tr>
 
-                    <th scope="col">Front</th>
-                    <th scope="col">Back</th>
+                    <th scope="col">Front</th> <th scope="col">Back</th>
                     <tr>
-                        <td><img class="d-block justify-content-center mx-auto imagen"src='${data.sprites.front_default}'/></td>
-                        <td><img class="d-block justify-content-center mx-auto imagen"src='${data.sprites.back_default}'/></td>
+                        <td><img src='${data.sprites.front_default}'/></td>
+                        <td><img src='${data.sprites.back_default}'/></td>
                     </tr>
                     
-                    <th scope="col">Front (shiny)</th>
-                    <th scope="col">Back (shiny)</th>
+                    <th scope="col">Front (shiny)</th> <th scope="col">Back (shiny)</th>
                     <tr>
-                        <td><img class="d-block justify-content-center mx-auto imagen"src='${data.sprites.front_shiny}'/></td>
-                        <td><img class="d-block justify-content-center mx-auto imagen"src='${data.sprites.back_shiny}'/></td>
+                        <td><img src='${data.sprites.front_shiny}'/></td>
+                        <td><img src='${data.sprites.back_shiny}'/></td>
                     </tr>
 
                     <th colspan="2">Dream World</th>
-                    <tr>
-                        <td colspan="2"><img class="d-block justify-content-center mx-auto imagen"src='${data.sprites.other.dream_world.front_default}'/></td>
-                    </tr>
+                    <tr><td colspan="2"><img src='${data.sprites.other.dream_world.front_default}'/></td></tr>
 
                     <th colspan="2">Official-Artwork</th>
-                    <tr>
-                        <td colspan="2"><img class="d-block justify-content-center mx-auto imagen"src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png'/></td>
-                    </tr>
+                    <tr><td colspan="2"><img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png'/></td></tr>
 
                 </tbody>
               </table>
             </div>
             `;
-
-        //console.log(data)
 
         // borra mensaje de error (funciona a medias)
         $("#errMsg").empty();
@@ -201,4 +182,14 @@ function search(url) {
         let element = $("#formContainer");
         element.append('<div class="col-12 mt-1"><p style="color: yellow;" id="errMsg">Nombre o id de Pokémon incorrecto.</p></div>');
     })
+}
+
+function searchFlavorText(urlText) {
+    fetch(urlText)
+    .then(response => response.json())
+    .then(data => {
+        let element = document.getElementById('pokeDescription')
+        element.innerHTML = `${data.flavor_text_entries[0].flavor_text}`;
+    })
+    .catch( err => console.log(err))
 }
