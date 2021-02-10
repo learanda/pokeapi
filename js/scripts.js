@@ -15,8 +15,8 @@ function filtrar() {
         case '5': initFor = 494; endFor = 649; break;
         case '6': initFor = 650; endFor = 721; break;
         case '7': initFor = 722; endFor = 809; break;
-        case '8': initFor = 810; endFor = 890; break;
-        case '9': initFor = 1; endFor = 890; break;
+        case '8': initFor = 810; endFor = 898; break;
+        case '9': initFor = 1; endFor = 898; break;
         default: console.log("Seleccione una opción válida");
     }
     //console.log(initFor, endFor)
@@ -79,7 +79,7 @@ var pokeID = 0;
 function catchID() {
     pokeID = document.getElementById("inputID").value;
     searchByPokeID(pokeID);
-    console.log(pokeID);
+    //console.log(pokeID);
 }
 
 function searchByPokeName(pokeName) {
@@ -99,7 +99,16 @@ function search(url) {
     .then(response => response.json())
     .then(data => {
 
-        //var fan =
+        var abilities = [];
+        var keys = Object.keys(data.abilities) + "";
+        var keysArray = keys.split(",");
+        //console.log(keysArray.length);
+
+        for (var i=0; i<keysArray.length; i++) {
+            abilities.push(" " + data.abilities[i].ability.name);
+        }
+        //console.log(abilities)
+
         
         let element = document.getElementById('pokeName')
         element.innerHTML = `
@@ -136,16 +145,15 @@ function search(url) {
                         <td colspan="2"><img class="d-block justify-content-center mx-auto imagen"src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png'/></td>
                     </tr>
 
-                    <th colspan="2">Abilities</th>                    
-                    <tr><td colspan="2" class="ability">${data.abilities[0].ability.name}, ${data.abilities[1].ability.name}</td></tr>
-                    
+                    <th colspan="2">Abilities</th>
+                    <tr><td colspan="2" class="ability">${abilities}</td></tr>
                     
                 </tbody>
               </table>
             </div>
             `;
 
-        console.log(data)
+        //console.log(data)
 
         // borra mensaje de error (funciona a medias)
         $("#errMsg").empty();
