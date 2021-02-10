@@ -1,9 +1,9 @@
 body {
     background: rgb(0,0,0);
     background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,99,198,1) 100%);
-    padding-bottom: 400px;
+    padding-bottom: 0px;
 }
-h1, h6 {
+h1, h5, h6 {
     color: bisque;
     font-family: 'Coming Soon', cursive;
     display: flex;
@@ -24,6 +24,12 @@ th, .ability {
     color: bisque;
     font-family: 'Coming Soon', cursive;
     font-size: 20px;
+}
+footer {
+    background-color: #000;
+    padding: 1px 0 1px 0;
+    
+  bottom: 0;
 }
 .input {
     border-color: rgb(248, 192, 6);

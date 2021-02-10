@@ -110,6 +110,10 @@ function search(url) {
         //console.log(abilities)
 
         
+        // agregar types, height, weight
+        // ver si puedo ocultar img si es null
+
+
         let element = document.getElementById('pokeName')
         element.innerHTML = `
             <h1 class="d-flex justify-content-center">${(data.name).toUpperCase()}</h1>
