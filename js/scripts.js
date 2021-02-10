@@ -99,6 +99,7 @@ function search(url) {
     .then(response => response.json())
     .then(data => {
 
+        /* ================= INICIO FUNCIONALIDAD PARA MOSTRAR HABILIDADES ================= */
         var abilities = [];
         var keys = Object.keys(data.abilities) + "";
         var keysArray = keys.split(",");
@@ -108,9 +109,16 @@ function search(url) {
             abilities.push(" " + data.abilities[i].ability.name);
         }
         //console.log(abilities)
+        /* =================== FIN FUNCIONALIDAD PARA MOSTRAR HABILIDADES ================== */
 
-        
-        // agregar types, height, weight
+        /* ================ INICIO FUNCIONALIDAD PARA MOSTRAR PESO Y ALTURA ================ */
+        var apiWeight = data.weight;    var weightKg = apiWeight/10;
+        var apiHeight = data.height;    var heightMts = apiHeight/10;
+        /* ================= FIN FUNCIONALIDAD PARA MOSTRAR PESO Y ALTURA ================== */
+
+
+
+        // agregar types
         // ver si puedo ocultar img si es null
 
 
@@ -152,6 +160,9 @@ function search(url) {
                     <th colspan="2">Abilities</th>
                     <tr><td colspan="2" class="ability">${abilities}</td></tr>
                     
+                    <th scope="col">Weight: ${weightKg} KG</th>
+                    <th scope="col">Height: ${heightMts} Mts</th><tr></tr>
+
                 </tbody>
               </table>
             </div>
