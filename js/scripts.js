@@ -139,12 +139,16 @@ function search(url) {
             <div class="col-12">
             <table class="table table-striped" id="tabla">
                 <thead>
-                  <tr>
-                    <th scope="col">Front</th>
-                    <th scope="col">Back</th>
-                  </tr>
+                    
                 </thead>
                 <tbody id="body">
+                    <th colspan="2">Types: ${types}</th><tr></tr>
+                    <th colspan="2">Abilities: ${abilities}</th><tr></tr>
+                    <th scope="col">Weight: ${weightKg} KG</th>
+                    <th scope="col">Height: ${heightMts} Mts</th><tr></tr>
+
+                    <th scope="col">Front</th>
+                    <th scope="col">Back</th>
                     <tr>
                         <td><img class="d-block justify-content-center mx-auto imagen"src='${data.sprites.front_default}'/></td>
                         <td><img class="d-block justify-content-center mx-auto imagen"src='${data.sprites.back_default}'/></td>
@@ -167,13 +171,12 @@ function search(url) {
                         <td colspan="2"><img class="d-block justify-content-center mx-auto imagen"src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png'/></td>
                     </tr>
 
-                    <th colspan="2">Abilities: ${abilities}</th><tr></tr>
                     
                     
-                    <th scope="col">Weight: ${weightKg} KG</th>
-                    <th scope="col">Height: ${heightMts} Mts</th><tr></tr>
+                    
+                    
 
-                    <th colspan="2">Types: ${types}</th><tr></tr>
+                    
                     
 
                 </tbody>
