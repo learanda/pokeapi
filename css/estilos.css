@@ -19,7 +19,7 @@ h3 {
 h6 {
     margin: 5px 10px 25px 12px;
 }
-th, .ability {
+th, .ability, .type {
     text-align: center;
     color: bisque;
     font-family: 'Coming Soon', cursive;

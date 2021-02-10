@@ -116,16 +116,26 @@ function search(url) {
         var apiHeight = data.height;    var heightMts = apiHeight/10;
         /* ================= FIN FUNCIONALIDAD PARA MOSTRAR PESO Y ALTURA ================== */
 
+        /* ==================== INICIO FUNCIONALIDAD PARA MOSTRAR TIPOS ==================== */
+        var types = [];
+        var keys = Object.keys(data.types) + "";
+        var keysArray = keys.split(",");
+        //console.log(keysArray.length);
+
+        for (var i=0; i<keysArray.length; i++) {
+            types.push(" " + data.types[i].type.name);
+        }
+        //console.log(abilities)
+        /* ===================== FIN FUNCIONALIDAD PARA MOSTRAR TIPOS ====================== */
 
 
-        // agregar types
         // ver si puedo ocultar img si es null
 
 
         let element = document.getElementById('pokeName')
         element.innerHTML = `
-            <h1 class="d-flex justify-content-center">${(data.name).toUpperCase()}</h1>
-            <p class="d-flex justify-content-center pokeNumber">#${data.id}</p>
+            <h1 class="d-flex justify-content-center">${(data.name).toUpperCase()}&nbsp; #${data.id}</h1>
+            <p class="d-flex justify-content-center pokeNumber"></p>
             <div class="col-12">
             <table class="table table-striped" id="tabla">
                 <thead>
@@ -157,11 +167,14 @@ function search(url) {
                         <td colspan="2"><img class="d-block justify-content-center mx-auto imagen"src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png'/></td>
                     </tr>
 
-                    <th colspan="2">Abilities</th>
-                    <tr><td colspan="2" class="ability">${abilities}</td></tr>
+                    <th colspan="2">Abilities: ${abilities}</th><tr></tr>
+                    
                     
                     <th scope="col">Weight: ${weightKg} KG</th>
                     <th scope="col">Height: ${heightMts} Mts</th><tr></tr>
+
+                    <th colspan="2">Types: ${types}</th><tr></tr>
+                    
 
                 </tbody>
               </table>
