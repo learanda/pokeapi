@@ -1,4 +1,5 @@
-var url = 'https://pokeapi.co/api/v2/pokemon/1'
+var url = 'https://pokeapi.co/api/v2/pokemon/'
+var urlText = 'https://pokeapi.co/api/v2/pokemon-species/'
 var lista = [];
 
 var initFor = 0;
@@ -84,14 +85,27 @@ function catchID() {
 
 function searchByPokeName(pokeName) {
     url = 'https://pokeapi.co/api/v2/pokemon/'+pokeName;
+    urlText = 'https://pokeapi.co/api/v2/pokemon-species/'+pokeName;
     search(url);
+    searchFlavorText(urlText);
 }
 
 function searchByPokeID(pokeID) {
     url = 'https://pokeapi.co/api/v2/pokemon/'+pokeID;
+    urlText = 'https://pokeapi.co/api/v2/pokemon-species/'+pokeID;
     search(url);
+    searchFlavorText(urlText);
 }
 
+function searchFlavorText(urlText) {
+    fetch(urlText)
+    .then(response => response.json())
+    .then(data => {
+        let element = document.getElementById('pokeDescription')
+        element.innerHTML = `<p class="flavorText">${data.flavor_text_entries[0].flavor_text}</p>`;
+    })
+    .catch( err => console.log(err))
+}
 
 function search(url) {
  
@@ -170,14 +184,6 @@ function search(url) {
                     <tr>
                         <td colspan="2"><img class="d-block justify-content-center mx-auto imagen"src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png'/></td>
                     </tr>
-
-                    
-                    
-                    
-                    
-
-                    
-                    
 
                 </tbody>
               </table>

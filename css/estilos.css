@@ -3,7 +3,7 @@ body {
     background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,99,198,1) 100%);
     padding-bottom: 0px;
 }
-h1, h5, h6 {
+h1, h5, h6, .flavorText {
     color: bisque;
     font-family: 'Coming Soon', cursive;
     display: flex;
@@ -59,4 +59,7 @@ footer {
     color: bisque;
     font-family: 'Coming Soon', cursive;
     font-size: 30px;
+}
+.flavorText {
+    font-size: 20px;
 }
