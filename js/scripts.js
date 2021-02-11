@@ -108,35 +108,28 @@ function search(url) {
         var abilities = [];
         var keys = Object.keys(data.abilities) + "";
         var keysArray = keys.split(",");
-        //console.log(keysArray.length);
 
         for (var i=0; i<keysArray.length; i++) {
             abilities.push(" " + data.abilities[i].ability.name);
         }
-        //console.log(abilities)
         /* =================== FIN FUNCIONALIDAD PARA MOSTRAR HABILIDADES ================== */
 
         /* ================ INICIO FUNCIONALIDAD PARA MOSTRAR PESO Y ALTURA ================ */
-        var apiWeight = data.weight;    var weightKg = apiWeight/10;
-        var apiHeight = data.height;    var heightMts = apiHeight/10;
+        var weightKg = (data.weight)/10;    var heightMts = (data.height)/10;
         /* ================= FIN FUNCIONALIDAD PARA MOSTRAR PESO Y ALTURA ================== */
 
         /* ==================== INICIO FUNCIONALIDAD PARA MOSTRAR TIPOS ==================== */
         var types = [];
         var keys = Object.keys(data.types) + "";
         var keysArray = keys.split(",");
-        //console.log(keysArray.length);
 
         for (var i=0; i<keysArray.length; i++) {
             types.push(" " + data.types[i].type.name);
         }
-        //console.log(abilities)
         /* ===================== FIN FUNCIONALIDAD PARA MOSTRAR TIPOS ====================== */
 
 
         // ver si puedo ocultar img si es null
-
-        // seguir optimizando
         document.getElementById('pokeName').innerHTML = `${(data.name).toUpperCase()}&nbsp; #${data.id}`
         
         let element = document.getElementById('pokeInfo')
@@ -192,25 +185,25 @@ function searchFlavorText(urlText) {
         var keys = Object.keys(data.flavor_text_entries) + "";
         var keysArray = keys.split(",");
         var descriptionText = "";
+        var language = "es";
+        getDescription(language);
 
-        // 1ra opción de language, se guarda el texto en español
-        for (var i=0; i<keysArray.length; i++) {
-            var languageName = data.flavor_text_entries[i].language.name
-            if (languageName == "es") {
-                descriptionText = data.flavor_text_entries[i].flavor_text;
-            }
-        }
-
-        // 2da opción de language, se guarda el texto en inglés
-        if (descriptionText == "") {
+        // se guarda el texto en el idioma especificado en el var
+        function getDescription(language) {
             for (var i=0; i<keysArray.length; i++) {
                 var languageName = data.flavor_text_entries[i].language.name
-                if (languageName == "en") {
+                if (languageName == language) {
                     descriptionText = data.flavor_text_entries[i].flavor_text;
                 }
             }
-        }
+        }   changeLanguage(language);
         
+        // si el texto sigue vacío por no encontrar el 1er idioma,
+        // se cambia a idioma alternativo y vuelve a buscar
+        function changeLanguage(language) {
+            if (descriptionText == "") { language = "en"; getDescription(language); }
+        }
+
         let element = document.getElementById('pokeDescription')
         element.innerHTML = `${descriptionText}`;
     })
