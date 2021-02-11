@@ -128,8 +128,25 @@ function search(url) {
         }
         /* ===================== FIN FUNCIONALIDAD PARA MOSTRAR TIPOS ====================== */
 
+        /* ==== INICIO FUNCIONALIDAD PARA MOSTRAR UNA IMÁGEN EN CASO DE NULL EN LA API ===== */
+        var defaultBack = data.sprites.back_default
+        var shinyFront = data.sprites.front_shiny
+        var shinyBack = data.sprites.back_shiny
+        var dreamWorld = data.sprites.other.dream_world.front_default
+        var id = data.id
+        var officialArtwork = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+id+".png";
+        
+        function getImgs(){
+            if (defaultBack == null) { defaultBack = "img/noDisponible.png" } else { defaultBack = data.sprites.back_default }
+            if (shinyFront == null) { shinyFront = "img/noDisponible.png" } else { shinyFront = data.sprites.front_shiny }
+            if (shinyBack == null) { shinyBack = "img/noDisponible.png" } else { shinyBack = data.sprites.back_shiny }
+            if (dreamWorld == null) { dreamWorld = "img/noDisponible.png" } else { dreamWorld = data.sprites.other.dream_world.front_default }
+            if (officialArtwork == null) { officialArtwork = "img/noDisponible.png" } 
+        }
+        getImgs();
+        /* ====== FIN FUNCIONALIDAD PARA MOSTRAR UNA IMÁGEN EN CASO DE NULL EN LA API ===== */
 
-        // ver si puedo ocultar img si es null
+        
         document.getElementById('pokeName').innerHTML = `${(data.name).toUpperCase()}&nbsp; #${data.id}`
         
         let element = document.getElementById('pokeInfo')
@@ -146,20 +163,20 @@ function search(url) {
                     <th scope="col">Front</th> <th scope="col">Back</th>
                     <tr>
                         <td><img src='${data.sprites.front_default}'/></td>
-                        <td><img src='${data.sprites.back_default}'/></td>
+                        <td><img src='${defaultBack}'/></td>
                     </tr>
                     
                     <th scope="col">Front (shiny)</th> <th scope="col">Back (shiny)</th>
                     <tr>
-                        <td><img src='${data.sprites.front_shiny}'/></td>
-                        <td><img src='${data.sprites.back_shiny}'/></td>
+                        <td><img src='${shinyFront}'/></td>
+                        <td><img src='${shinyBack}'/></td>
                     </tr>
 
                     <th colspan="2">Dream World</th>
-                    <tr><td colspan="2"><img src='${data.sprites.other.dream_world.front_default}'/></td></tr>
+                    <tr><td colspan="2"><img src='${dreamWorld}'/></td></tr>
 
                     <th colspan="2">Official-Artwork</th>
-                    <tr><td colspan="2"><img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png'/></td></tr>
+                    <tr><td colspan="2"><img src='${officialArtwork}'/></td></tr>
 
                 </tbody>
               </table>
