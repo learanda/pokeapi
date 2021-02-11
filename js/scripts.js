@@ -166,14 +166,14 @@ function search(url) {
             </div>
             `;
 
-        // borra mensaje de error (funciona a medias)
-        $("#errMsg").empty();
+        // borra mensaje de error
+        $(".errMsg").detach();
     })
 
     .catch( err => {
         console.log(err)
         let element = $("#formContainer");
-        element.append('<div class="col-12 mt-1"><p style="color: yellow;" id="errMsg">Nombre o id de Pokémon incorrecto.</p></div>');
+        element.append('<div class="col-12 mt-1 errMsg"><p style="color: yellow;">Nombre o id de Pokémon incorrecto.</p></div>');
     })
 }
 
