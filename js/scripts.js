@@ -172,12 +172,11 @@ function search(url) {
                         <td><img src='${shinyBack}'/></td>
                     </tr>
 
-                    <th colspan="2">Dream World</th>
-                    <tr><td colspan="2"><img src='${dreamWorld}'/></td></tr>
-
-                    <th colspan="2">Official-Artwork</th>
-                    <tr><td colspan="2"><img src='${officialArtwork}'/></td></tr>
-
+                    <th scope="col">Dream World</th> <th scope="col">Official-Artwork</th>
+                    <tr>
+                        <td><img src='${dreamWorld}'/></td>
+                        <td><img src='${officialArtwork}'/></td>
+                    </tr>
                 </tbody>
               </table>
             </div>
