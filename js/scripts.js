@@ -189,10 +189,8 @@ function searchFlavorText(urlText) {
     .then(response => response.json())
     .then(data => {
 
-        var entries = []
         var keys = Object.keys(data.flavor_text_entries) + "";
         var keysArray = keys.split(",");
-
         var descriptionText = "";
 
         for (var i=0; i<keysArray.length; i++) {
@@ -201,20 +199,6 @@ function searchFlavorText(urlText) {
                 descriptionText = data.flavor_text_entries[i].flavor_text;
             }
         }
-       
-        /* do {
-            var languageName = data.flavor_text_entries[i].language.name
-            console.log(languageName);
-            if (languageName == "es") {
-                descriptionText = data.flavor_text_entries[i].flavor_text;
-            }
-            i++;
-            console.log(i)
-        } while(data.flavor_text_entries[i] =! "es"); */
-
-        /* for (var i=0; i<keysArray.length; i++) {
-            var languageName = data.flavor_text_entries[i]
-        } */
         
         let element = document.getElementById('pokeDescription')
         element.innerHTML = `${descriptionText}`;
