@@ -136,11 +136,11 @@ function search(url) {
 
         // ver si puedo ocultar img si es null
 
-
-        let element = document.getElementById('pokeName')
+        // seguir optimizando
+        document.getElementById('pokeName').innerHTML = `${(data.name).toUpperCase()}&nbsp; #${data.id}`
+        
+        let element = document.getElementById('pokeInfo')
         element.innerHTML = `
-            <h1 class="d-flex justify-content-center">${(data.name).toUpperCase()}&nbsp; #${data.id}</h1>
-            <p class="d-flex justify-content-center pokeNumber"></p>
             <div class="col-12">
             <table class="table table-striped" id="tabla">
                 <thead></thead>
