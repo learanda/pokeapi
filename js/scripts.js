@@ -146,7 +146,7 @@ function search(url) {
         getImgs();
         /* ====== FIN FUNCIONALIDAD PARA MOSTRAR UNA IMÁGEN EN CASO DE NULL EN LA API ===== */
 
-        
+
         document.getElementById('pokeName').innerHTML = `${(data.name).toUpperCase()}&nbsp; #${data.id}`
         
         let element = document.getElementById('pokeInfo')
@@ -155,18 +155,18 @@ function search(url) {
             <table class="table table-striped" id="tabla">
                 <thead></thead>
                 <tbody id="body">
-                    <th colspan="2">Types: ${types}</th><tr></tr>
-                    <th colspan="2">Abilities: ${abilities}</th><tr></tr>
-                    <th scope="col">Weight: ${weightKg} KG</th>
-                    <th scope="col">Height: ${heightMts} Mts</th><tr></tr>
+                    <th colspan="2">Tipos: ${types}</th><tr></tr>
+                    <th colspan="2">Habilidades: ${abilities}</th><tr></tr>
+                    <th scope="col">Peso: ${weightKg} KG</th>
+                    <th scope="col">Altura: ${heightMts} Mts</th><tr></tr>
 
-                    <th scope="col">Front</th> <th scope="col">Back</th>
+                    <th scope="col">Frente</th> <th scope="col">Espalda</th>
                     <tr>
                         <td><img src='${data.sprites.front_default}'/></td>
                         <td><img src='${defaultBack}'/></td>
                     </tr>
                     
-                    <th scope="col">Front (shiny)</th> <th scope="col">Back (shiny)</th>
+                    <th scope="col">Frente (shiny)</th> <th scope="col">Espalda (shiny)</th>
                     <tr>
                         <td><img src='${shinyFront}'/></td>
                         <td><img src='${shinyBack}'/></td>
