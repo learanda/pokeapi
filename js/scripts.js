@@ -193,10 +193,21 @@ function searchFlavorText(urlText) {
         var keysArray = keys.split(",");
         var descriptionText = "";
 
+        // 1ra opción de language, se guarda el texto en español
         for (var i=0; i<keysArray.length; i++) {
             var languageName = data.flavor_text_entries[i].language.name
             if (languageName == "es") {
                 descriptionText = data.flavor_text_entries[i].flavor_text;
+            }
+        }
+
+        // 2da opción de language, se guarda el texto en inglés
+        if (descriptionText == "") {
+            for (var i=0; i<keysArray.length; i++) {
+                var languageName = data.flavor_text_entries[i].language.name
+                if (languageName == "en") {
+                    descriptionText = data.flavor_text_entries[i].flavor_text;
+                }
             }
         }
         
