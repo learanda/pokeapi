@@ -25,97 +25,99 @@
   </head>
   <body>
     <h1>Poke-búsquedas</h1>
-    <h6>Info from&nbsp;<a href="https://pokeapi.co/" target="_blank">pokeapi.co</a></h6>
+    <h6>Info from&nbsp;<a style="text-decoration:none" href="https://pokeapi.co/" target="_blank">pokeapi.co</a></h6>
     
+    <div class="row">
+      <div class="container col-sm-12 col-lg-8 d-flex justify-content-center">
+          <div class="row">
+            <div class=" bloque pt-2 pb-2 mb-4" id="formContainer">
+              <!-- <form action=""> -->
 
-    <div class="container">
-        <div class="row">
-          <div class="col-sm-12 bloque pt-2 pb-2 mb-4" id="formContainer">
-            <!-- <form action=""> -->
-
-              <!-- ========================== INICIO SECCIÓN BÚSQUEDA POR GENERACIÓN ========================== -->
-              <div class="row">
-                <div class="col-12 mt-2 mb-2 "><h3>Búsqueda por generación</h3></div>
-                <div class="col-6 mb-2">
-                  <select class="form-select input" id="gen">
-                    <option disabled selected value="">Seleccionar generación</option>
-                    <option value="1">1ra generación</option>
-                    <option value="2">2da generación</option>
-                    <option value="3">3ra generación</option>
-                    <option value="4">4ta generación</option>
-                    <option value="5">5ta generación</option>
-                    <option value="6">6ta generación</option>
-                    <option value="7">7ma generación</option>
-                    <option value="8">8va generación</option>
-                    <option value="9">Todas</option>
-                  </select>
+                <!-- ========================== INICIO SECCIÓN BÚSQUEDA POR GENERACIÓN ========================== -->
+                <div class="row">
+                  <div class="col-12 mt-2 mb-2 "><h3>Búsqueda por generación</h3></div>
+                  <div class="col-6 mb-2">
+                    <select class="form-select input" id="gen">
+                      <option disabled selected value="">Seleccionar generación</option>
+                      <option value="1">1ra generación</option>
+                      <option value="2">2da generación</option>
+                      <option value="3">3ra generación</option>
+                      <option value="4">4ta generación</option>
+                      <option value="5">5ta generación</option>
+                      <option value="6">6ta generación</option>
+                      <option value="7">7ma generación</option>
+                      <option value="8">8va generación</option>
+                      <option value="9">Todas</option>
+                    </select>
+                  </div>
+                  <div class="col-2 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-danger altura" onclick="filtrar()">Filtrar</button>
+                  </div>
+                  <div class="col-4 d-flex justify-content-center">
+                    <a class="btn btn-warning altura" href="javascript:location.reload()" role="button">Limpiar</a>
+                  </div>
                 </div>
-                <div class="col-2 d-flex justify-content-center">
-                  <button type="submit" class="btn btn-danger altura" onclick="filtrar()">Filtrar</button>
-                </div>
-                <div class="col-4 d-flex justify-content-center">
-                  <a class="btn btn-warning altura" href="javascript:location.reload()" role="button">Limpiar</a>
-                </div>
-              </div>
 
-              <div class="row">
-                <div class="col-9">
-                  <select class="form-select input" id="selectName">
-                    <option disabled selected value="">Seleccionar Pokémon</option>
-                  </select>
+                <div class="row">
+                  <div class="col-9">
+                    <select class="form-select input" id="selectName">
+                      <option disabled selected value="">Seleccionar Pokémon</option>
+                    </select>
+                  </div>
+                  <div class="col-3">
+                      <button type="submit" class="btn btn-danger btn-busqueda" onclick="catchList()"><span class="material-icons">search</span></button>
+                  </div>
                 </div>
-                <div class="col-3">
-                    <button type="submit" class="btn btn-danger btn-busqueda" onclick="catchList()"><span class="material-icons">search</span></button>
-                </div>
-              </div>
-              <!-- ========================== FIN SECCIÓN BÚSQUEDA POR GENERACIÓN ========================== -->
+                <!-- ========================== FIN SECCIÓN BÚSQUEDA POR GENERACIÓN ========================== -->
 
 
-              <!-- ========================== INICIO SECCIÓN BÚSQUEDA POR NOMBRE ========================== -->
-              <div class="col-12 mt-4 mb-2"><h3>Búsqueda por nombre</h3></div>
-              <div class="row">
-                <div class="col-9">
-                  <input type="text" id="inputName" class="form-control input" placeholder="Ingrese nombre">
+                <!-- ========================== INICIO SECCIÓN BÚSQUEDA POR NOMBRE ========================== -->
+                <div class="col-12 mt-4 mb-2"><h3>Búsqueda por nombre</h3></div>
+                <div class="row">
+                  <div class="col-9">
+                    <input type="text" id="inputName" class="form-control input" placeholder="Ingrese nombre">
+                  </div>
+                  <div class="col-3">
+                    <button type="submit" class="btn btn-danger btn-busqueda" onclick="catchInput()"><span class="material-icons">search</span></button>
+                  </div>
                 </div>
-                <div class="col-3">
-                  <button type="submit" class="btn btn-danger btn-busqueda" onclick="catchInput()"><span class="material-icons">search</span></button>
+                <!-- ========================== FIN SECCIÓN BÚSQUEDA POR NOMBRE ========================== -->
+
+
+                <!-- ========================== INICIO SECCIÓN BÚSQUEDA POR ID ========================== -->
+                <div class="col-12 mt-4 mb-2"><h3>Búsqueda por ID</h3></div>
+                <div class="row">
+                  <div class="col-9">
+                    <input type="number" id="inputID" class="form-control input" min="1" max="898" placeholder="Ingrese ID">
+                  </div>
+                  <div class="col-3">
+                    <button type="submit" class="btn btn-danger btn-busqueda" onclick="catchID()"><span class="material-icons">search</span></button>
+                  </div>
                 </div>
-              </div>
-              <!-- ========================== FIN SECCIÓN BÚSQUEDA POR NOMBRE ========================== -->
+                <!-- ========================== FIN SECCIÓN BÚSQUEDA POR ID ========================== -->
+                  
 
+              <!-- </form> -->
+            </div>
 
-              <!-- ========================== INICIO SECCIÓN BÚSQUEDA POR ID ========================== -->
-              <div class="col-12 mt-4 mb-2"><h3>Búsqueda por ID</h3></div>
-              <div class="row">
-                <div class="col-9">
-                  <input type="number" id="inputID" class="form-control input" min="1" max="898" placeholder="Ingrese ID">
+            
+            <div class="bloque pt-2 pb-2">
+              <h1 class="d-flex justify-content-center mb-3" id="pokeName"></h1>
+              <div id="pokeInfo"></div>
+              <div class="flavorText" id="pokeDescription">
+                <div class="col-12">
+                  <table class="table table-striped" id="tabla">
+                      <thead></thead>
+                      <tbody id="descriptionTable">
+
+                      </tbody>
+                  </table>
                 </div>
-                <div class="col-3">
-                  <button type="submit" class="btn btn-danger btn-busqueda" onclick="catchID()"><span class="material-icons">search</span></button>
-                </div>
-              </div>
-              <!-- ========================== FIN SECCIÓN BÚSQUEDA POR ID ========================== -->
-                
-
-            <!-- </form> -->
-          </div>
-
-          <div class="col-sm-12 bloque pt-2 pb-2">
-            <h1 class="d-flex justify-content-center mb-3" id="pokeName"></h1>
-            <div id="pokeInfo"></div>
-            <div class="flavorText" id="pokeDescription">
-              <div class="col-12">
-                <table class="table table-striped" id="tabla">
-                    <thead></thead>
-                    <tbody id="descriptionTable">
-
-                    </tbody>
-                </table>
               </div>
             </div>
-          </div>
 
-        </div>
+          </div>
+      </div>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
@@ -139,7 +141,7 @@
     <script src="js/jQscripts.js"></script>
 
     <footer>
-      <h5 style="margin-top: 50px; padding-bottom: 15px;">Developed by&nbsp;<a href="https://learanda.github.io/" target="_blank">Leandro Aranda</a></h5>
+      <h5 style="margin-top: 50px; padding-bottom: 25px;">Developed by&nbsp;<a style="text-decoration:none" href="https://learanda.github.io/" target="_blank">Leandro Aranda</a></h5>
     </footer>
   </body>
 </html>
