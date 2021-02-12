@@ -15,3 +15,7 @@ $(document).ready(function() {
     }   
     });
 });
+
+$('#formContainer').click(function() {
+    alert("click");
+});
