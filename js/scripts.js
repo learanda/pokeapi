@@ -129,6 +129,7 @@ function search(url) {
         /* ===================== FIN FUNCIONALIDAD PARA MOSTRAR TIPOS ====================== */
 
         /* ==== INICIO FUNCIONALIDAD PARA MOSTRAR UNA IMÁGEN EN CASO DE NULL EN LA API ===== */
+        var defaultFront = data.sprites.front_default
         var defaultBack = data.sprites.back_default
         var shinyFront = data.sprites.front_shiny
         var shinyBack = data.sprites.back_shiny
@@ -137,6 +138,7 @@ function search(url) {
         var officialArtwork = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+id+".png";
         
         function getImgs(){
+            if (defaultFront == null) { defaultFront = "img/noDisponible.png" } else { defaultFront = data.sprites.front_default }
             if (defaultBack == null) { defaultBack = "img/noDisponible.png" } else { defaultBack = data.sprites.back_default }
             if (shinyFront == null) { shinyFront = "img/noDisponible.png" } else { shinyFront = data.sprites.front_shiny }
             if (shinyBack == null) { shinyBack = "img/noDisponible.png" } else { shinyBack = data.sprites.back_shiny }
@@ -162,7 +164,7 @@ function search(url) {
 
                     <th scope="col">Frente</th> <th scope="col">Espalda</th>
                     <tr>
-                        <td><img src='${data.sprites.front_default}'/></td>
+                        <td><img src='${defaultFront}'/></td>
                         <td><img src='${defaultBack}'/></td>
                     </tr>
                     
