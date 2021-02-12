@@ -65,3 +65,10 @@ footer {
 .flavorText {
     font-size: 20px;
 }
+.gameName {
+    font-weight: bold;
+}
+#rows {
+    color: bisque;
+    font-family: 'Coming Soon', cursive;
+}

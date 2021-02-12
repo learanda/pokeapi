@@ -202,7 +202,7 @@ function searchFlavorText(urlText) {
 
         var keys = Object.keys(data.flavor_text_entries) + "";
         var keysArray = keys.split(",");
-        var descriptionText = "";
+        var descriptionText = [];
         var language = "es";
         getDescription(language);
 
@@ -211,7 +211,7 @@ function searchFlavorText(urlText) {
             for (var i=0; i<keysArray.length; i++) {
                 var languageName = data.flavor_text_entries[i].language.name
                 if (languageName == language) {
-                    descriptionText = data.flavor_text_entries[i].flavor_text;
+                    descriptionText.push("<div>" + '<span class="gameName">'+(data.flavor_text_entries[i].version.name).toUpperCase()+":&nbsp; </span>" + data.flavor_text_entries[i].flavor_text + "</div>")
                 }
             }
         }   changeLanguage(language);
@@ -222,7 +222,10 @@ function searchFlavorText(urlText) {
             if (descriptionText == "") { language = "en"; getDescription(language); }
         }
 
-        let element = document.getElementById('pokeDescription')
+        let headDescriptions = document.getElementById('descriptionTable')
+        headDescriptions.innerHTML = `<th colspan="2">Descripciones por juegos</th><tr id="rows"></tr>`;
+
+        let element = document.getElementById('rows')
         element.innerHTML = `${descriptionText}`;
     })
     .catch( err => console.log(err))
