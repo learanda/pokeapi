@@ -72,3 +72,6 @@ footer {
     color: bisque;
     font-family: 'Coming Soon', cursive;
 }
+#formContainer {
+    cursor: pointer;
+}

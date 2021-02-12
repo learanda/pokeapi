@@ -16,6 +16,12 @@ $(document).ready(function() {
     });
 });
 
+// evento para reproducir sonido de click
 $('#formContainer').click(function() {
-    alert("click");
+    $(".audioClick")[0].play();
+});
+
+// evento para reproducir sonido de tap
+$('#formContainer').on("tap", function() {
+    $(".audioTouch")[0].play();
 });

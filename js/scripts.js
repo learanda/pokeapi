@@ -99,6 +99,8 @@ function searchByPokeID(pokeID) {
 
 
 function search(url) {
+    
+
  
     fetch(url)
     .then(response => response.json())
@@ -196,6 +198,10 @@ function search(url) {
 }
 
 function searchFlavorText(urlText) {
+
+    // funcion que reproduce sonido "infoSent.mp3"
+    $(function infoSent() { $(".audioInfoSent")[0].play(); })
+
     fetch(urlText)
     .then(response => response.json())
     .then(data => {
