@@ -5,6 +5,19 @@ $(document).ready(function() {
     $(".audioInit")[0].play();
 });
 
+// botón para reproducir o pausar música
+$('#music').click(function() {
+    var icon = document.getElementById('musicIcon').innerHTML;
+
+    if (icon == "notifications_off") {
+        document.getElementById('musicIcon').innerHTML = `notifications_active`
+        $(".audioMusic")[0].play();
+    } else {
+        document.getElementById('musicIcon').innerHTML  = `notifications_off`
+        $(".audioMusic")[0].pause();
+    }
+});
+
 // ejecuta function catchInput con keypress
 $(document).ready(function() {
         $('#inputName').keypress(function(e){   
