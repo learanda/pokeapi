@@ -186,6 +186,9 @@ function search(url) {
             </div>
             `;
 
+        // funcion que reproduce sonido "infoSent.mp3"
+        $(function infoSent() { $(".audioInfoSent")[0].play(); })
+
         // borra mensaje de error
         $(".errMsg").detach();
     })
@@ -200,9 +203,6 @@ function search(url) {
 }
 
 function searchFlavorText(urlText) {
-
-    // funcion que reproduce sonido "infoSent.mp3"
-    $(function infoSent() { $(".audioInfoSent")[0].play(); })
 
     fetch(urlText)
     .then(response => response.json())
