@@ -192,6 +192,8 @@ function search(url) {
 
     .catch( err => {
         console.log(err)
+        // funcion que reproduce sonido "infoSent.mp3"
+        $(function infoSent() { $(".audioError")[0].play(); })
         let element = $("#formContainer");
         element.append('<div class="col-12 mt-1 errMsg"><p style="color: yellow;">Nombre o id de Pokémon incorrecto.</p></div>');
     })

@@ -1,3 +1,10 @@
+// sonido para cuando se recarga la página interactuando
+// no utilizo el evento click con el boton de limpiar porque
+// justamente como recarga la página, no se reproduce
+$(document).ready(function() {
+    $(".audioInit")[0].play();
+});
+
 // ejecuta function catchInput con keypress
 $(document).ready(function() {
         $('#inputName').keypress(function(e){   
