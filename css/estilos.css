@@ -43,8 +43,16 @@ footer {
     background-color: crimson;
     color: bisque;
 }
+.input:hover {
+    background-color: bisque;
+    color: crimson;
+}
 #inputName::placeholder, #inputID::placeholder{
     color: bisque;
+}
+#inputName:hover::placeholder, #inputID:hover::placeholder{
+    background-color: bisque;
+    color: crimson;
 }
 .bloque {
     background-color: rgb(158, 0, 0, 0.4);

@@ -25,7 +25,7 @@
     <!-- <audio class="audioClick" src="sounds/click.mp3" type="audio/mp3"></audio>
     <audio class="audioInfoSent" src="sounds/infoSent.mp3" type="audio/mp3"></audio>
     <audio class="audioTouch" src="sounds/touch.mp3" type="audio/mp3"></audio> -->
-    <audio class="audioInit" src="sounds/pcLoginPoke.mp3" type="audio/mp3"></audio>
+    <audio class="audioInit" src="sounds/pcLoginPoke.mp3" type="audio/mp3" preload="auto"></audio>
     <audio class="audioMusic" src="sounds/pokeCenterPoke.mp3" type="audio/mp3"></audio>
     <audio class="audioClick" src="sounds/pressingPoke.mp3" type="audio/mp3"></audio>
     <audio class="audioInfoSent" src="sounds/dataPokedexPoke.mp3" type="audio/mp3"></audio>
@@ -49,7 +49,7 @@
                 <div class="row">
                   <div class="col-12 mt-2 mb-2 "><h3>Búsqueda por generación</h3></div>
                   <div class="col-6 mb-2">
-                    <select class="form-select input" id="gen">
+                    <select class="form-select input containerHoverSound" id="gen">
                       <option disabled selected value="">Seleccionar generación</option>
                       <option value="1">1ra generación</option>
                       <option value="2">2da generación</option>
@@ -61,6 +61,7 @@
                       <option value="8">8va generación</option>
                       <option value="9">Todas</option>
                     </select>
+                    <audio class="hoverSound" src="/sounds/touch.mp3" preload="auto"></audio>
                   </div>
                   <div class="col-2 d-flex justify-content-center">
                     <button type="submit" class="btn btn-danger altura" onclick="filtrar()">Filtrar</button>
@@ -71,9 +72,10 @@
                 </div>
 
                 <div class="row">
-                  <div class="col-9">
+                  <div class="col-9 containerHoverSound">
                     <select class="form-select input" id="selectName">
                       <option disabled selected value="">Seleccionar Pokémon</option>
+                      <audio class="hoverSound" src="/sounds/touch.mp3" preload="auto"></audio>
                     </select>
                   </div>
                   <div class="col-3">
@@ -86,8 +88,9 @@
                 <!-- ========================== INICIO SECCIÓN BÚSQUEDA POR NOMBRE ========================== -->
                 <div class="col-12 mt-4 mb-2"><h3>Búsqueda por nombre</h3></div>
                 <div class="row">
-                  <div class="col-9">
+                  <div class="col-9 containerHoverSound">
                     <input type="text" id="inputName" class="form-control input" placeholder="Ingrese nombre">
+                    <audio class="hoverSound" src="/sounds/touch.mp3" preload="auto"></audio>
                   </div>
                   <div class="col-3">
                     <button type="submit" class="btn btn-danger btn-busqueda" onclick="catchInput()"><span class="material-icons">search</span></button>
@@ -99,8 +102,9 @@
                 <!-- ========================== INICIO SECCIÓN BÚSQUEDA POR ID ========================== -->
                 <div class="col-12 mt-4 mb-2"><h3>Búsqueda por ID</h3></div>
                 <div class="row">
-                  <div class="col-9">
+                  <div class="col-9 containerHoverSound">
                     <input type="number" id="inputID" class="form-control input" min="1" max="898" placeholder="Ingrese ID">
+                    <audio class="hoverSound" src="/sounds/touch.mp3" preload="auto"></audio>
                   </div>
                   <div class="col-3">
                     <button type="submit" class="btn btn-danger btn-busqueda" onclick="catchID()"><span class="material-icons">search</span></button>

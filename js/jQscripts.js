@@ -45,3 +45,10 @@ $('#formContainer').click(function() {
 $('#formContainer').on("tap", function() {
     $(".audioTouch")[0].play();
 });
+
+// evento para reproducir sonido cuando el mouse entra en el area de un elemento
+var hoverSound = $(".hoverSound")[0];
+$(".containerHoverSound")
+.mouseenter(function() {
+    hoverSound.play();
+})
