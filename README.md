@@ -12,5 +12,8 @@ que no es más que un refresco de página.
 
 Como para hacerlo un poco más entretenido coloqué en el sitio algunos sonidos que a más de uno le resultará familiar ✨
 
+> Utilizo Github pages como hosting, este es el link del sitio [Poke-búsquedas]
+
 
 [Pokeapi.co]: <https://pokeapi.co/>
+[Poke-búsquedas]: <https://learanda.github.io/pokeapi/>
